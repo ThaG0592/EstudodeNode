@@ -1,1 +1,16 @@
-console.log('Criando um site de noticias com node.js');
+var http = require('http');
+
+var server = http.createServer(function(req,res){
+    var categoria = req.url;
+
+    if(categoria == '/tecnologia'){
+        res.end("<html><body>Portal de Tecnologia</body></html>");      
+    }else if(categoria == '/beleza'){
+        res.end("<html><body>Portal de Beleza</body></html>");      
+    }else if(categoria == '/moda'){
+        res.end("<html><body>Portal de moda</body></html>");      
+    }else{
+        res.end("<html><body>Portal de Notícias</body></html>");
+    }
+
+}).listen(3000);
